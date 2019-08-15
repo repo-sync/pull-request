@@ -7,8 +7,6 @@ if [[ -z "$GITHUB_TOKEN" ]]; then
   exit 1
 fi
 
-env
-
 if [[ ! -z "$SOURCE_BRANCH" ]]; then
   SOURCE_BRANCH="$SOURCE_BRANCH"
 elif [[ ! -z "$GITHUB_REF" ]]; then
@@ -28,7 +26,16 @@ git fetch origin '+refs/heads/*:refs/heads/*'
 
 if [ "$(git rev-parse --revs-only "$SOURCE_BRANCH")" = "$(git rev-parse --revs-only "$DESTINATION_BRANCH")" ]; then 
   echo "Source and destination branches are the same." 
+  exit 0
 fi
+
+# Do not proceed if there are no file differences, this avoids PRs with just a merge commit and no content
+LINES_CHANGED=$(git diff --name-only "$DESTINATION_BRANCH" "$SOURCE_BRANCH" | wc -l | awk '{print $1}')
+if [[ "$LINES_CHANGED" = "0" ]]; then 
+  echo "No file changes detected between source and destination branches." 
+  exit 0
+fi
+
 
 # Workaround for `hub` auth error https://github.com/github/hub/issues/2149#issuecomment-513214342
 export GITHUB_USER="$GITHUB_ACTOR"
