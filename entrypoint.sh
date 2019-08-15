@@ -33,12 +33,20 @@ fi
 # Workaround for `hub` auth error https://github.com/github/hub/issues/2149#issuecomment-513214342
 export GITHUB_USER="$GITHUB_ACTOR"
 
+PR_ARG="$PR_TITLE"
+if [[ ! -z "$PR_ARG" ]]; then
+  PR_ARG="-m \"$PR_ARG\""
+
+  if [[ ! -z "$PR_BODY" ]]; then
+    PR_ARG="$PR_ARG -m \"$PR_BODY\""
+  fi
+fi
+
 COMMAND="hub pull-request \
   -b $DESTINATION_BRANCH \
   -h $SOURCE_BRANCH \
   --no-edit \
-  -m \"$PR_TITLE\" \
-  -m \"$PR_BODY\" \
+  $PR_ARG \
   -r \"$PR_REVIEWER\" \
   -a \"$PR_ASSIGNEE\" \
   -l \"$PR_LABEL\" \
