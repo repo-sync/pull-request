@@ -6,8 +6,8 @@ A GitHub Action for creating pull requests.
 ## Features
  * Create pull requests
  * Add reviewers, assignees, labels, or milestones
- * Customize pull request title and message
- * Fails silently when a pull request already exists
+ * Customize pull request title and body
+ * Fail silently when a pull request already exists
 
 
 ## Usage
@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: repo-sync
-      uses: wei/pull-request@master
+      uses: wei/pull-request@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DESTINATION_BRANCH: "master"
@@ -47,7 +47,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: pull-request
-      uses: wei/pull-request@master
+      uses: wei/pull-request@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DESTINATION_BRANCH: "master"
