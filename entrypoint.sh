@@ -42,15 +42,27 @@ if [[ ! -z "$PR_ARG" ]]; then
   fi
 fi
 
+if [[ ! -z "$PR_REVIEWER" ]]; then
+  PR_ARG="$PR_ARG -r \"$PR_REVIEWER\""
+fi
+
+if [[ ! -z "$PR_ASSIGNEE" ]]; then
+  PR_ARG="$PR_ARG -a \"$PR_ASSIGNEE\""
+fi
+
+if [[ ! -z "$PR_LABEL" ]]; then
+  PR_ARG="$PR_ARG -l \"$PR_LABEL\""
+fi
+
+if [[ ! -z "$PR_MILESTONE" ]]; then
+  PR_ARG="$PR_ARG -M \"$PR_MILESTONE\""
+fi
+
 COMMAND="hub pull-request \
   -b $DESTINATION_BRANCH \
   -h $SOURCE_BRANCH \
   --no-edit \
   $PR_ARG \
-  -r \"$PR_REVIEWER\" \
-  -a \"$PR_ASSIGNEE\" \
-  -l \"$PR_LABEL\" \
-  -M \"$PR_MILESTONE\" \
   || true"
 
 echo "$COMMAND"
