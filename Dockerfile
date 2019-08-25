@@ -9,7 +9,7 @@ LABEL "repository"="http://github.com/wei/pull-request"
 LABEL "homepage"="http://github.com/wei/pull-request"
 LABEL "maintainer"="Wei He <github@weispot.com>"
 
-RUN echo http://dl-4.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
   apk add --no-cache git hub
 
 ADD *.sh /
