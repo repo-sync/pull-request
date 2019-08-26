@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: repo-sync
-      uses: wei/pull-request@v1
+      uses: repo-sync/pull-request@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DESTINATION_BRANCH: "master"
