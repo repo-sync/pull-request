@@ -1,6 +1,6 @@
 # Github Pull Request
 
-A GitHub Action for creating pull requests. 
+A Github Action for creating pull requests. 
 
 
 ## Features
