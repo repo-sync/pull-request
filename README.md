@@ -1,6 +1,6 @@
-# Github Pull Request
+# GitHub Pull Request
 
-A Github Action for creating pull requests. 
+A GitHub Action for creating pull requests. 
 
 
 ## Features
@@ -12,7 +12,7 @@ A Github Action for creating pull requests.
 
 ## Usage
 
-### Github Actions
+### GitHub Actions
 ```
 # File: .github/workflows/pull-request.yml
 
