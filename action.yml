@@ -1,0 +1,40 @@
+name: GitHub Pull Request
+author: Wei He <github@weispot.com>
+description: ⤵️ Create pull request
+branding:
+  icon: 'git-pull-request'
+  color: 'black'
+inputs:
+  source_branch:
+    description: Branch name to pull from, default is triggered branch
+    required: false
+  destination_branch:
+    description: Branch name to sync to in this repo, default is master
+    required: false
+    default: master
+  pr_title:
+    description: Pull request title
+    required: false
+  pr_body:
+    description: Pull request body
+    required: false
+  pr_reviewer:
+    description: Pull request reviewers, comma-separated list (no spaces)
+    required: false
+  pr_assignee:
+    description: Pull request assignees, comma-separated list (no spaces)
+    required: false
+  pr_label:
+    description: Pull request labels, comma-separated list (no spaces)
+    required: false
+  pr_milestone:
+    description: Pull request milestone
+    required: false
+  github_token:
+    description: GitHub token secret
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    GITHUB_TOKEN: ${{ inputs.github_token }}

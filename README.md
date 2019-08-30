@@ -26,12 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: repo-sync
-      uses: repo-sync/pull-request@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DESTINATION_BRANCH: "master"
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+This will automatically create a pull request from `feature-1` to `master`.
 
 
 ## Advanced options
@@ -47,24 +48,15 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: pull-request
-      uses: wei/pull-request@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DESTINATION_BRANCH: "master"
-        SOURCE_BRANCH: ""                     # If blank, default: triggered branch
-        PR_TITLE: "Pulling ${{ github.ref }} into master"
-        PR_BODY: ":crown: *An automated PR*"  # Full markdown support
-        PR_REVIEWER: "wei,worker"             # Comma-separated list (no spaces)
-        PR_ASSIGNEE: "wei,worker"             # Comma-separated list (no spaces)
-        PR_LABEL: "auto-pr"                   # Comma-separated list (no spaces)
-        PR_MILESTONE: "Milestone 1"           # Milestone name
-        HUB_VERBOSE: "1"                      # Enable hub logging
+      uses: repo-sync/pull-request@v2
+      with:
+        source_branch: ""                     # If blank, default: triggered branch
+        destination_branch: "master"          # If blank, default: master
+        pr_title: "Pulling ${{ github.ref }} into master"
+        pr_body: ":crown: *An automated PR*"  # Full markdown support
+        pr_reviewer: "wei,worker"             # Comma-separated list (no spaces)
+        pr_assignee: "wei,worker"             # Comma-separated list (no spaces)
+        pr_label: "auto-pr"                   # Comma-separated list (no spaces)
+        pr_milestone: "Milestone 1"           # Milestone name
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
-
-
-## Author
-[Wei He](https://github.com/wei) _github@weispot.com_
-
-
-## License
-[MIT](https://wei.mit-license.org)

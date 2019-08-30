@@ -1,13 +1,10 @@
 FROM alpine
 
-LABEL "com.github.actions.name"="Github Pull Request"
-LABEL "com.github.actions.description"="⤵️ Create pull request"
-LABEL "com.github.actions.icon"="git-pull-request"
-LABEL "com.github.actions.color"="black"
-
-LABEL "repository"="http://github.com/wei/pull-request"
-LABEL "homepage"="http://github.com/wei/pull-request"
-LABEL "maintainer"="Wei He <github@weispot.com>"
+LABEL \
+  "name"="GitHub Pull Request" \
+  "homepage"="https://github.com/marketplace/actions/github-pull-request" \
+  "repository"="https://github.com/repo-sync/pull-request" \
+  "maintainer"="Wei He <github@weispot.com>"
 
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
   apk add --no-cache git hub
