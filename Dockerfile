@@ -1,6 +1,6 @@
 FROM alpine
 
-LABEL "com.github.actions.name"="Github Pull Request"
+LABEL "com.github.actions.name"="Github Pull Request (deprecated)"
 LABEL "com.github.actions.description"="⤵️ Create pull request"
 LABEL "com.github.actions.icon"="git-pull-request"
 LABEL "com.github.actions.color"="black"
