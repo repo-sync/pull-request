@@ -1,7 +1,7 @@
 FROM alpine
 
 LABEL \
-  "name"="GitHub Pull Request" \
+  "name"="GitHub Pull Request Action" \
   "homepage"="https://github.com/marketplace/actions/github-pull-request" \
   "repository"="https://github.com/repo-sync/pull-request" \
   "maintainer"="Wei He <github@weispot.com>"
