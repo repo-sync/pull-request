@@ -40,7 +40,7 @@ fi
 # Workaround for `hub` auth error https://github.com/github/hub/issues/2149#issuecomment-513214342
 export GITHUB_USER="$GITHUB_ACTOR"
 
-PR_ARG="$INPUTS_PR_TITLE"
+PR_ARG="$INPUT_PR_TITLE"
 if [[ ! -z "$PR_ARG" ]]; then
   PR_ARG="-m \"$PR_ARG\""
 

@@ -54,7 +54,7 @@ jobs:
         source_branch: ""                     # If blank, default: triggered branch
         destination_branch: "master"          # If blank, default: master
         pr_title: "Pulling ${{ github.ref }} into master"
-        pr_body: ":crown: *An automated PR*"  # Full markdown support
+        pr_body: ":crown: *An automated PR*"  # Full markdown support, requires pr_title to be set
         pr_reviewer: "wei,worker"             # Comma-separated list (no spaces)
         pr_assignee: "wei,worker"             # Comma-separated list (no spaces)
         pr_label: "auto-pr"                   # Comma-separated list (no spaces)
