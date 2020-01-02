@@ -26,7 +26,7 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
@@ -47,7 +47,7 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
