@@ -5,6 +5,9 @@ branding:
   icon: 'git-pull-request'
   color: 'black'
 inputs:
+  repository:
+    description: Repository on which to make the pull request
+    required: false
   source_branch:
     description: Branch name to pull from, default is triggered branch
     required: false

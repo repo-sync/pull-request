@@ -18,21 +18,26 @@ fi
 
 DESTINATION_BRANCH="${INPUT_DESTINATION_BRANCH:-"master"}"
 
+REPOSITORY="$GITHUB_REPOSITORY"
+if [[ ! -z "$INPUT_REPOSITORY" ]]; then
+  REPOSITORY="$INPUT_REPOSITORY"
+fi
+
 # Github actions no longer auto set the username and GITHUB_TOKEN
-git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
+git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$REPOSITORY"
 
 # Pull all branches references down locally so subsequent commands can see them
 git fetch origin '+refs/heads/*:refs/heads/*'
 
-if [ "$(git rev-parse --revs-only "$SOURCE_BRANCH")" = "$(git rev-parse --revs-only "$DESTINATION_BRANCH")" ]; then 
-  echo "Source and destination branches are the same." 
+if [ "$(git rev-parse --revs-only "$SOURCE_BRANCH")" = "$(git rev-parse --revs-only "$DESTINATION_BRANCH")" ]; then
+  echo "Source and destination branches are the same."
   exit 0
 fi
 
 # Do not proceed if there are no file differences, this avoids PRs with just a merge commit and no content
 LINES_CHANGED=$(git diff --name-only "$DESTINATION_BRANCH" "$SOURCE_BRANCH" | wc -l | awk '{print $1}')
-if [[ "$LINES_CHANGED" = "0" ]]; then 
-  echo "No file changes detected between source and destination branches." 
+if [[ "$LINES_CHANGED" = "0" ]]; then
+  echo "No file changes detected between source and destination branches."
   exit 0
 fi
 
@@ -63,6 +68,16 @@ fi
 
 if [[ ! -z "$INPUT_PR_MILESTONE" ]]; then
   PR_ARG="$PR_ARG -M \"$INPUT_PR_MILESTONE\""
+fi
+
+# need to fork if PR is not to $GITHUB_REPOSITORY
+if [[ ! -z "$INPUT_REPOSITORY" ]]; then
+  FORK_COMMAND="hub fork || true"
+  echo "$FORK_COMMAND"
+  sh -c "$COMMAND"
+  # assuming the fork worked, what is the location of the fork?
+  # need to do something like
+  # SOURCE_BRANCH="USER/REPO:$SOURCE_BRANCH"
 fi
 
 COMMAND="hub pull-request \
