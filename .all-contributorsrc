@@ -26,11 +26,21 @@
         "doc",
         "ideas"
       ]
+    },
+    {
+      "login": "Goobles",
+      "name": "Gobius Dolhain",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/8776771?v=4",
+      "profile": "https://github.com/Goobles",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "pull-request",
   "projectOwner": "repo-sync",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
