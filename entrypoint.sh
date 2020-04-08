@@ -65,6 +65,10 @@ if [[ ! -z "$INPUT_PR_MILESTONE" ]]; then
   PR_ARG="$PR_ARG -M \"$INPUT_PR_MILESTONE\""
 fi
 
+if [[ "$INPUT_PR_DRAFT" ==  "true" ]]; then
+  PR_ARG="$PR_ARG -d"
+fi
+
 COMMAND="hub pull-request \
   -b $DESTINATION_BRANCH \
   -h $SOURCE_BRANCH \

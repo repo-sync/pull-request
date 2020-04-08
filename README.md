@@ -59,6 +59,7 @@ jobs:
         pr_assignee: "wei,worker"             # Comma-separated list (no spaces)
         pr_label: "auto-pr"                   # Comma-separated list (no spaces)
         pr_milestone: "Milestone 1"           # Milestone name
+        pr_draft: true                        # Creates pull request as draft
         github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 

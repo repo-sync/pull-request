@@ -30,6 +30,9 @@ inputs:
   pr_milestone:
     description: Pull request milestone
     required: false
+  pr_draft:
+    description: Draft pull request
+    required: false
   github_token:
     description: GitHub token secret
     required: true
