@@ -77,4 +77,11 @@ COMMAND="hub pull-request \
   || true"
 
 echo "$COMMAND"
-sh -c "$COMMAND"
+
+PR_URL=$(sh -c "$COMMAND")
+if [[ "$?" != "0" ]]; then
+  exit 1
+fi
+
+echo ${PR_URL}
+echo "::set-output name=pr_url::${PR_URL}"
