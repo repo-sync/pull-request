@@ -18,6 +18,9 @@ inputs:
   pr_body:
     description: Pull request body
     required: false
+  pr_template:
+    description: Pull request template
+    required: false
   pr_reviewer:
     description: Pull request reviewers, comma-separated list (no spaces)
     required: false
