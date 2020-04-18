@@ -22,7 +22,7 @@ DESTINATION_BRANCH="${INPUT_DESTINATION_BRANCH:-"master"}"
 git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
 
 # Pull all branches references down locally so subsequent commands can see them
-hub sync
+git fetch origin '+refs/heads/*:refs/heads/*' --update-head-ok
 
 # Print out all branches
 git --no-pager branch -a -vv
