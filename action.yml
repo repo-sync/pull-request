@@ -36,7 +36,7 @@ inputs:
   pr_draft:
     description: Draft pull request
     required: false
-  pr_create_empty:
+  pr_allow_empty:
     description: Create PR even if no changes
     required: false
   github_token:
