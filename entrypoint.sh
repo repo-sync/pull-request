@@ -34,7 +34,7 @@ fi
 
 # Do not proceed if there are no file differences, this avoids PRs with just a merge commit and no content
 LINES_CHANGED=$(git diff --name-only "$DESTINATION_BRANCH" "$SOURCE_BRANCH" | wc -l | awk '{print $1}')
-if [[ "$LINES_CHANGED" = "0" ]]; then 
+if [[ "$LINES_CHANGED" = "0" ]] && [[ ! "$INPUT_PR_ALLOW_EMPTY" ==  "true" ]]; then
   echo "No file changes detected between source and destination branches." 
   exit 0
 fi

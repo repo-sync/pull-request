@@ -64,6 +64,7 @@ jobs:
         pr_label: "auto-pr"                               # Comma-separated list (no spaces)
         pr_milestone: "Milestone 1"                       # Milestone name
         pr_draft: true                                    # Creates pull request as draft
+        pr_allow_empty: true                              # Creates pull request even if there are no changes
         github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
