@@ -17,7 +17,7 @@ A GitHub Action for creating pull requests.
 ## Usage
 
 ### GitHub Actions
-```
+```yaml
 # File: .github/workflows/pull-request.yml
 
 on:
@@ -40,7 +40,7 @@ This will automatically create a pull request from `feature-1` to `master`.
 
 
 ## Advanced options
-```
+```yaml
 on:
   push:
     branches:
