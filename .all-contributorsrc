@@ -71,6 +71,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "JamesMGreene",
+      "name": "James M. Greene",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/417751?v=4",
+      "profile": "https://jamesmgreene.github.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
