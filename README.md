@@ -33,10 +33,11 @@ jobs:
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
+        destination_branch: "main"
         github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-This will automatically create a pull request from `feature-1` to `master`.
+This will automatically create a pull request from `feature-1` to `main`.
 
 
 ## Advanced options
