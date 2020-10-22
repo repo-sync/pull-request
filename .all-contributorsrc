@@ -90,6 +90,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "PabloBarrenechea-Reflektion",
+      "name": "Pablo Barrenechea",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62668221?v=4",
+      "profile": "https://github.com/PabloBarrenechea-Reflektion",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
