@@ -1,7 +1,7 @@
 # GitHub Pull Request
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 A GitHub Action for creating pull requests. 
@@ -90,6 +90,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://jamesmgreene.github.io/"><img src="https://avatars2.githubusercontent.com/u/417751?v=4" width="100px;" alt=""/><br /><sub><b>James M. Greene</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=JamesMGreene" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/simon300000"><img src="https://avatars1.githubusercontent.com/u/12656264?v=4" width="100px;" alt=""/><br /><sub><b>simon3000</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3Asimon300000" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=simon300000" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/PabloBarrenechea-Reflektion"><img src="https://avatars3.githubusercontent.com/u/62668221?v=4" width="100px;" alt=""/><br /><sub><b>Pablo Barrenechea</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3APabloBarrenechea-Reflektion" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=PabloBarrenechea-Reflektion" title="Code">💻</a></td>
+    <td align="center"><a href="https://openspur.org/~atsushi.w/"><img src="https://avatars3.githubusercontent.com/u/8390204?v=4" width="100px;" alt=""/><br /><sub><b>Atsushi Watanabe</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3Aat-wat" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=at-wat" title="Code">💻</a></td>
   </tr>
 </table>
 

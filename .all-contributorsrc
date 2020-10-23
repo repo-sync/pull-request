@@ -100,6 +100,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "at-wat",
+      "name": "Atsushi Watanabe",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/8390204?v=4",
+      "profile": "https://openspur.org/~atsushi.w/",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
