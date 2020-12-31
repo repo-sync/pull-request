@@ -92,3 +92,4 @@ fi
 
 echo ${PR_URL}
 echo "::set-output name=pr_url::${PR_URL}"
+echo "::set-output name=pr_number::${PR_URL##*/}"

@@ -45,6 +45,8 @@ inputs:
 outputs:
   pr_url:
     description: 'Pull request URL'
+  pr_number:
+    description: 'Pull request number'
 runs:
   using: 'docker'
   image: 'Dockerfile'
