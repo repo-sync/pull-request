@@ -69,6 +69,34 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+### Outputs
+
+If given an `id`, the outcome of the pull-request step can be referenced in later steps. Two outputs are available: `pr_url` and `pr_number`.
+
+```yaml
+on:
+  push:
+    branches:
+    - feature-1
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: pull-request
+      id: open-pr
+      uses: repo-sync/pull-request@v2
+      with:
+        destination_branch: "main"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: output-url
+      run: echo ${{steps.open-pr.outputs.pr_url}}
+    - name: output-number
+      run: echo ${{steps.open-pr.outputs.pr_number}}
+    
+```
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
