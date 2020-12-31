@@ -110,6 +110,15 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "christhekeele",
+      "name": "Christopher Keele",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1406220?v=4",
+      "profile": "http://twitter.com/christhekeele",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
