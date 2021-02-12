@@ -57,7 +57,7 @@ if [[ ! -z "$PR_ARG" ]]; then
 fi
 
 if [[ ! -z "$INPUT_PR_REVIEWER" ]]; then
-  PR_ARG="$PR_ARG -r \"$INPUT_PR_REVIEWER\""
+  PR_ARG="$PR_ARG -r $INPUT_PR_REVIEWER"
 fi
 
 if [[ ! -z "$INPUT_PR_ASSIGNEE" ]]; then
