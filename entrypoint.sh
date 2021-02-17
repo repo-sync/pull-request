@@ -28,15 +28,15 @@ git fetch origin '+refs/heads/*:refs/heads/*' --update-head-ok
 # Print out all branches
 git --no-pager branch -a -vv
 
-if [ "$(git rev-parse --revs-only "$SOURCE_BRANCH")" = "$(git rev-parse --revs-only "$DESTINATION_BRANCH")" ]; then 
-  echo "Source and destination branches are the same." 
+if [ "$(git rev-parse --revs-only "$SOURCE_BRANCH")" = "$(git rev-parse --revs-only "$DESTINATION_BRANCH")" ]; then
+  echo "Source and destination branches are the same."
   exit 0
 fi
 
 # Do not proceed if there are no file differences, this avoids PRs with just a merge commit and no content
 LINES_CHANGED=$(git diff --name-only "$DESTINATION_BRANCH" "$SOURCE_BRANCH" -- | wc -l | awk '{print $1}')
 if [[ "$LINES_CHANGED" = "0" ]] && [[ ! "$INPUT_PR_ALLOW_EMPTY" ==  "true" ]]; then
-  echo "No file changes detected between source and destination branches." 
+  echo "No file changes detected between source and destination branches."
   exit 0
 fi
 
@@ -93,3 +93,8 @@ fi
 echo ${PR_URL}
 echo "::set-output name=pr_url::${PR_URL}"
 echo "::set-output name=pr_number::${PR_URL##*/}"
+if [[ "$LINES_CHANGED" = "0" ]]; then
+  echo "::set-output name=changed_files::false"
+else
+  echo "::set-output name=changed_files::true"
+fi

@@ -2,9 +2,9 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END --> 
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-A GitHub Action for creating pull requests. 
+A GitHub Action for creating pull requests.
 
 
 ## Features
@@ -71,7 +71,7 @@ jobs:
 
 ### Outputs
 
-If given an `id`, the outcome of the pull-request step can be referenced in later steps. Two outputs are available: `pr_url` and `pr_number`.
+The following outputs are available: `pr_url`, `pr_number`, `changed_files ("true"|"false")`.
 
 ```yaml
 on:
@@ -94,7 +94,9 @@ jobs:
       run: echo ${{steps.open-pr.outputs.pr_url}}
     - name: output-number
       run: echo ${{steps.open-pr.outputs.pr_number}}
-    
+    - name: output-changed-files
+      run: echo ${{steps.open-pr.outputs.changed_files}}
+
 ```
 
 ## Contributors ✨
