@@ -47,8 +47,8 @@ outputs:
     description: 'Pull request URL'
   pr_number:
     description: 'Pull request number'
-  changed_files:
-    description: 'True when there were changed files detected and a PR will be created'
+  has_changed_files:
+    description: 'Boolean string indicating whether any file has been changed'
 runs:
   using: 'docker'
   image: 'Dockerfile'

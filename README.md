@@ -71,7 +71,7 @@ jobs:
 
 ### Outputs
 
-The following outputs are available: `pr_url`, `pr_number`, `changed_files ("true"|"false")`.
+The following outputs are available: `pr_url`, `pr_number`, `has_changed_files ("true"|"false")`.
 
 ```yaml
 on:
@@ -94,8 +94,8 @@ jobs:
       run: echo ${{steps.open-pr.outputs.pr_url}}
     - name: output-number
       run: echo ${{steps.open-pr.outputs.pr_number}}
-    - name: output-changed-files
-      run: echo ${{steps.open-pr.outputs.changed_files}}
+    - name: output-has-changed-files
+      run: echo ${{steps.open-pr.outputs.has_changed_files}}
 
 ```
 

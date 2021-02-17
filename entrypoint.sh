@@ -94,7 +94,7 @@ echo ${PR_URL}
 echo "::set-output name=pr_url::${PR_URL}"
 echo "::set-output name=pr_number::${PR_URL##*/}"
 if [[ "$LINES_CHANGED" = "0" ]]; then
-  echo "::set-output name=changed_files::false"
+  echo "::set-output name=has_changed_files::false"
 else
-  echo "::set-output name=changed_files::true"
+  echo "::set-output name=has_changed_files::true"
 fi
