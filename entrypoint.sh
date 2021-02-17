@@ -37,6 +37,7 @@ fi
 LINES_CHANGED=$(git diff --name-only "$DESTINATION_BRANCH" "$SOURCE_BRANCH" -- | wc -l | awk '{print $1}')
 if [[ "$LINES_CHANGED" = "0" ]] && [[ ! "$INPUT_PR_ALLOW_EMPTY" ==  "true" ]]; then
   echo "No file changes detected between source and destination branches." 
+  echo "::set-output name=changed_files::false"
   exit 0
 fi
 
@@ -93,3 +94,4 @@ fi
 echo ${PR_URL}
 echo "::set-output name=pr_url::${PR_URL}"
 echo "::set-output name=pr_number::${PR_URL##*/}"
+echo "::set-output name=changed_files::true"
