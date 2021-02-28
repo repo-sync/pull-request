@@ -34,7 +34,7 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         destination_branch: "main"
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 This will automatically create a pull request from `feature-1` to `main`.
@@ -57,8 +57,14 @@ jobs:
       with:
         source_branch: ""                                 # If blank, default: triggered branch
         destination_branch: "master"                      # If blank, default: master
+        repository: ${{ github.repository }}              # repository with owner, can be another repository than currently checked out.
         pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
-        pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
+        pr_body: |                                        # Full markdown support, requires pr_title to be set
+          :crown: *An automated PR*
+          :arrow_heading_up: Closes: #issueid <!-- your issue -->
+          
+          **Describe the Change** <!-- A longer description  -->
+          "Put a description here"
         pr_template: ".github/PULL_REQUEST_TEMPLATE.md"   # Path to pull request template, requires pr_title to be set, excludes pr_body
         pr_reviewer: "wei,worker"                         # Comma-separated list (no spaces)
         pr_assignee: "wei,worker"                         # Comma-separated list (no spaces)
@@ -66,7 +72,8 @@ jobs:
         pr_milestone: "Milestone 1"                       # Milestone name
         pr_draft: true                                    # Creates pull request as draft
         pr_allow_empty: true                              # Creates pull request even if there are no changes
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_PERSONAL_ACTION_TOKEN }}
+        debug: false                                      # bash set -x verbose debugging output
 ```
 
 ### Outputs
@@ -89,7 +96,7 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         destination_branch: "main"
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: output-url
       run: echo ${{steps.open-pr.outputs.pr_url}}
     - name: output-number

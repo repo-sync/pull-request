@@ -12,6 +12,9 @@ inputs:
     description: Branch name to sync to in this repo, default is master
     required: false
     default: master
+  repository:
+    required: false
+    description: Repository on which to perform the pull-request. Defaults to current repo. Can different from the current one.
   pr_title:
     description: Pull request title
     required: false
@@ -39,9 +42,11 @@ inputs:
   pr_allow_empty:
     description: Create PR even if no changes
     required: false
-  github_token:
-    description: GitHub token secret
+  token:
+    description: GitHub token secret or Personal Action Token
     required: true
+  debug:
+    description: Bash set -x debugging mode
 outputs:
   pr_url:
     description: 'Pull request URL'
@@ -52,5 +57,3 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env:
-    GITHUB_TOKEN: ${{ inputs.github_token }}
