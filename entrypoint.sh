@@ -23,13 +23,13 @@ function echo_warning { echo -e "${color_yellow}✔ $*${reset_color}"; }
 function echo_success { echo -e "${color_green}✔ $*${reset_color}"; }
 function echo_fail { echo -e "${color_red}✖ $*${reset_color}"; }
 function enable_debug {
-  if [[ "${DEBUG}" == "true" ]]; then
+  if [[ "${INPUT_DEBUG}" == "true" ]]; then
     echo_info "Enabling debug mode."
     set -x
   fi
 }
 function disable_debug {
-  if [[ "${DEBUG}" == "true" ]]; then
+  if [[ "${INPUT_DEBUG}" == "true" ]]; then
     set +x
   fi
 }
