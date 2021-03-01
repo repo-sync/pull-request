@@ -38,10 +38,18 @@ function disable_debug {
 
 
 echo "::group::Check inputs"
-echo "::add-mask::$INPUT_TOKEN"
 if [[ -z "$INPUT_TOKEN" ]]; then
-  echo_fail "Set the INPUT_TOKEN environment variable."
+  echo_yellow "INPUT_TOKEN unsupplied. Defaulting to GITHUB_TOKEN."
+  INPUT_TOKEN="$GITHUB_TOKEN"
+fi
+
+if [[ -z "$INPUT_TOKEN" ]]; then
+  echo_fail "GITHUB_TOKEN is missing. This is usually provided as an environment variable by Github Actions. If INPUT_TOKEN or GITHUB_TOKEN are unsupplied, unable to continue."
   exit 1
+fi
+
+if [[ ! -z "$INPUT_TOKEN" ]]; then
+  echo "::add-mask::$INPUT_TOKEN"
 fi
 
 # enable debug after token handling
