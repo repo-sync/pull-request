@@ -57,7 +57,7 @@ jobs:
       with:
         source_branch: ""                                 # If blank, default: triggered branch
         destination_branch: "master"                      # If blank, default: master
-        repository: ${{ github.repository }}              # repository with owner, can be another repository than currently checked out.
+        repository: ${{ github.repository }}              # repository with owner, can be another repository than currently checked out when using a PAT during checkout that has access to the other repo.
         pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
         pr_body: |                                        # Full markdown support, requires pr_title to be set
           :crown: *An automated PR*
@@ -104,6 +104,43 @@ jobs:
     - name: output-has-changed-files
       run: echo ${{steps.open-pr.outputs.has_changed_files}}
 
+```
+
+### Example: Pull-Request on another repo
+This example demonstrates how to create a pull-request in another repo. There are a few caveats such as the requirement of checking out the code with a [Github Personal Action Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). There are some pretty advanced use cases for this such as building an app on every push to develop, updating the docker image tag and repo url in the config repo, and creating a pull-request to the config repo. After the pr in the config repo is merged a deployment is kicked off.
+```yaml
+on:
+  push:
+    branches:
+    - 'develop'
+jobs:
+  draft-new-pr:
+    name: "Create PR in my-apps-config-repo"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.ACTIONS_WORKFLOW_PAT }}
+      - name: Create Alt Repo Pull-Request
+        uses: ./.github/actions/actions-create-pull-request
+        with:
+          source_branch: 'develop'
+          destination_branch: 'master'
+          repository: '${{ github.repository_owner }}/my-apps-config-repo'
+          pr_title: "Pulling 'release/${{ steps.ver.outputs.version-after }}' into master"
+          pr_body: |
+            :crown: *An automated PR*
+            
+            This PR was created in response to a manual trigger of the release workflow here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.
+            ..And creates a pr in this other repo here: https://github.com/${{ github.repository_owner }}/my-apps-config-repo.
+
+            "Put a description here"
+            'Quotes are being handled'
+          pr_label: "some-label,another-label"
+          pr_allow_empty: false
+          token: ${{ secrets.ACTIONS_WORKFLOW_PAT }}
+          debug: false
 ```
 
 ## Contributors ✨
