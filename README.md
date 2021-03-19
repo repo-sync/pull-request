@@ -34,7 +34,7 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         destination_branch: "main"
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 This will automatically create a pull request from `feature-1` to `main`.
@@ -57,8 +57,14 @@ jobs:
       with:
         source_branch: ""                                 # If blank, default: triggered branch
         destination_branch: "master"                      # If blank, default: master
+        repository: ${{ github.repository }}              # repository with owner, can be another repository than currently checked out when using a PAT during checkout that has access to the other repo.
         pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
-        pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
+        pr_body: |                                        # Full markdown support, requires pr_title to be set
+          :crown: *An automated PR*
+          :arrow_heading_up: Closes: #issueid <!-- your issue -->
+          
+          **Describe the Change** <!-- A longer description  -->
+          "Put a description here"
         pr_template: ".github/PULL_REQUEST_TEMPLATE.md"   # Path to pull request template, requires pr_title to be set, excludes pr_body
         pr_reviewer: "wei,worker"                         # Comma-separated list (no spaces)
         pr_assignee: "wei,worker"                         # Comma-separated list (no spaces)
@@ -66,7 +72,8 @@ jobs:
         pr_milestone: "Milestone 1"                       # Milestone name
         pr_draft: true                                    # Creates pull request as draft
         pr_allow_empty: true                              # Creates pull request even if there are no changes
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+        debug: false                                      # bash set -x verbose debugging output
 ```
 
 ### Outputs
@@ -89,7 +96,7 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         destination_branch: "main"
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: output-url
       run: echo ${{steps.open-pr.outputs.pr_url}}
     - name: output-number
@@ -97,6 +104,43 @@ jobs:
     - name: output-has-changed-files
       run: echo ${{steps.open-pr.outputs.has_changed_files}}
 
+```
+
+### Example: Pull-Request on another repo
+This example demonstrates how to create a pull-request in another repo. There are a few caveats such as the requirement of checking out the code with a [Github Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). There are some pretty advanced use cases for this such as building an app on every push to develop, updating the docker image tag and repo url in the config repo, and creating a pull-request to the config repo. After the pr in the config repo is merged a deployment is kicked off.
+```yaml
+on:
+  push:
+    branches:
+    - 'develop'
+jobs:
+  draft-new-pr:
+    name: "Create PR in my-apps-config-repo"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.ACTIONS_WORKFLOW_PAT }}
+      - name: Create Alt Repo Pull-Request
+        uses: ./.github/actions/actions-create-pull-request
+        with:
+          source_branch: 'develop'
+          destination_branch: 'master'
+          repository: '${{ github.repository_owner }}/my-apps-config-repo'
+          pr_title: "Pulling 'release/${{ steps.ver.outputs.version-after }}' into master"
+          pr_body: |
+            :crown: *An automated PR*
+            
+            This PR was created in response to a manual trigger of the release workflow here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.
+            ..And creates a pr in this other repo here: https://github.com/${{ github.repository_owner }}/my-apps-config-repo.
+
+            "Put a description here"
+            'Quotes are being handled'
+          pr_label: "some-label,another-label"
+          pr_allow_empty: false
+          token: ${{ secrets.ACTIONS_WORKFLOW_PAT }}
+          debug: false
 ```
 
 ## Contributors ✨
