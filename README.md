@@ -72,7 +72,7 @@ jobs:
         pr_milestone: "Milestone 1"                       # Milestone name
         pr_draft: true                                    # Creates pull request as draft
         pr_allow_empty: true                              # Creates pull request even if there are no changes
-        token: ${{ secrets.GITHUB_PERSONAL_ACTION_TOKEN }}
+        token: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         debug: false                                      # bash set -x verbose debugging output
 ```
 
@@ -107,7 +107,7 @@ jobs:
 ```
 
 ### Example: Pull-Request on another repo
-This example demonstrates how to create a pull-request in another repo. There are a few caveats such as the requirement of checking out the code with a [Github Personal Action Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). There are some pretty advanced use cases for this such as building an app on every push to develop, updating the docker image tag and repo url in the config repo, and creating a pull-request to the config repo. After the pr in the config repo is merged a deployment is kicked off.
+This example demonstrates how to create a pull-request in another repo. There are a few caveats such as the requirement of checking out the code with a [Github Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). There are some pretty advanced use cases for this such as building an app on every push to develop, updating the docker image tag and repo url in the config repo, and creating a pull-request to the config repo. After the pr in the config repo is merged a deployment is kicked off.
 ```yaml
 on:
   push:

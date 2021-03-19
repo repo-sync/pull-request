@@ -43,7 +43,7 @@ inputs:
     description: Create PR even if no changes
     required: false
   token:
-    description: GitHub token secret or Personal Action Token
+    description: GitHub token secret or Personal Access Token
     required: true
   debug:
     description: Bash set -x debugging mode
