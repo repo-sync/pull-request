@@ -5,6 +5,9 @@ branding:
   icon: 'git-pull-request'
   color: 'black'
 inputs:
+  destination_repository:
+    description: Repository (user/repo) to create the pull request in, falls back to checkout repository or triggered repository
+    required: false
   source_branch:
     description: Branch name to pull from, default is triggered branch
     required: false
