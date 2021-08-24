@@ -18,7 +18,28 @@ else
 fi
 
 DESTINATION_BRANCH="${INPUT_DESTINATION_BRANCH:-"master"}"
-DESTINATION_REPOSITORY="${INPUT_DESTINATION_REPOSITORY:-$GITHUB_REPOSITORY}"
+
+# Determine repository url
+if [[ -z "$INPUT_DESTINATION_REPOSITORY" ]]; then
+  # Try to query local repository's remote url if INPUT_DESTINATION_REPOSITORY is null
+  local_origin=$(git config --get remote.origin.url)
+
+  if [[ "$local_origin" == *.git ]]; then
+    origin_no_suffix="${local_origin%.*}"
+  else
+    origin_no_suffix="$local_origin"
+  fi
+
+  repo="$(basename "${origin_no_suffix}")"
+  owner="$(basename "${origin_no_suffix%/${repo}}")"
+
+  if [[ ! -z "$repo" ]]; then
+    CHECKOUT_REPOSITORY="$owner/$repo"
+  fi
+fi
+
+# Fallback to GITHUB_REPOSITORY if both INPUT_DESTINATION_REPOSITORY and CHECKOUT_REPOSITORY are unavailable
+DESTINATION_REPOSITORY="${INPUT_DESTINATION_REPOSITORY:-${CHECKOUT_REPOSITORY:-${GITHUB_REPOSITORY}}}"
 
 # Github actions no longer auto set the username and GITHUB_TOKEN
 git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$DESTINATION_REPOSITORY"
