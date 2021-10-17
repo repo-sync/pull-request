@@ -1,7 +1,7 @@
 # GitHub Pull Request
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A GitHub Action for creating pull requests.
@@ -123,6 +123,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://openspur.org/~atsushi.w/"><img src="https://avatars3.githubusercontent.com/u/8390204?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Atsushi Watanabe</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3Aat-wat" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=at-wat" title="Code">💻</a></td>
     <td align="center"><a href="http://twitter.com/christhekeele"><img src="https://avatars0.githubusercontent.com/u/1406220?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christopher Keele</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=christhekeele" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/rachmari"><img src="https://avatars.githubusercontent.com/u/9831992?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rachael Sewell</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=rachmari" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/TheKoenig"><img src="https://avatars.githubusercontent.com/u/74304748?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TheKoenig</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=TheKoenig" title="Code">💻</a></td>
   </tr>
 </table>
 
