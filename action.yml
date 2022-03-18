@@ -12,6 +12,10 @@ inputs:
     description: Branch name to sync to in this repo, default is master
     required: false
     default: master
+  repository:
+    description: Set custom repository
+    required: false
+    default: ${{ github.repository }}
   pr_title:
     description: Pull request title
     required: false
@@ -38,6 +42,9 @@ inputs:
     required: false
   pr_allow_empty:
     description: Create PR even if no changes
+    required: false
+  working_directory:
+    description: Change working directory
     required: false
   github_token:
     description: GitHub token secret
