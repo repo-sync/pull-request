@@ -7,7 +7,7 @@ LABEL \
   "maintainer"="Wei He <github@weispot.com>"
 
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
-  apk add --no-cache git hub bash
+  apk add --no-cache git hub bash sudo
 
 ADD *.sh /
 
