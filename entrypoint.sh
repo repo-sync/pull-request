@@ -55,7 +55,7 @@ if [[ ! -z "$PR_ARG" ]]; then
     sed -i 's/`/\\`/g; s/\$/\\\$/g' "$INPUT_PR_TEMPLATE"
     PR_ARG="$PR_ARG -m \"$(echo -e "$(cat "$INPUT_PR_TEMPLATE")")\""
   elif [[ ! -z "$INPUT_PR_BODY" ]]; then
-    PR_ARG="$PR_ARG -m \"$INPUT_PR_BODY\""
+    PR_ARG="$PR_ARG -m ${INPUT_PR_BODY@Q}"
   fi
 fi
 
