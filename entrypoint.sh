@@ -94,10 +94,10 @@ if [[ "$?" != "0" ]]; then
 fi
 
 echo ${PR_URL}
-echo "::set-output name=pr_url::${PR_URL}"
-echo "::set-output name=pr_number::${PR_URL##*/}"
+echo "pr_url=${PR_URL}" >> $GITHUB_OUTPUT
+echo "pr_number=${PR_URL##*/}" >> $GITHUB_OUTPUT
 if [[ "$LINES_CHANGED" = "0" ]]; then
-  echo "::set-output name=has_changed_files::false"
+  echo "has_changed_files=false" >> $GITHUB_OUTPUT
 else
-  echo "::set-output name=has_changed_files::true"
+  echo "has_changed_files=true" >> $GITHUB_OUTPUT
 fi
