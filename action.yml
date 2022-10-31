@@ -3,7 +3,7 @@ author: Wei He <github@weispot.com>
 description: ⤵️ Create pull request
 branding:
   icon: 'git-pull-request'
-  color: 'black'
+  color: 'gray-dark'
 inputs:
   source_branch:
     description: Branch name to pull from, default is triggered branch
@@ -51,6 +51,6 @@ outputs:
     description: 'Boolean string indicating whether any file has been changed'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: docker://ghcr.io/repo-sync/pull-request:v2.8
   env:
     GITHUB_TOKEN: ${{ inputs.github_token }}
