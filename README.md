@@ -1,7 +1,7 @@
 # GitHub Pull Request
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A GitHub Action for creating pull requests.
@@ -107,24 +107,29 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://whe.me"><img src="https://avatars3.githubusercontent.com/u/5880908?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wei He</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=wei" title="Code">💻</a> <a href="https://github.com/repo-sync/pull-request/commits?author=wei" title="Documentation">📖</a> <a href="#design-wei" title="Design">🎨</a> <a href="#ideas-wei" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://zeke.sikelianos.com"><img src="https://avatars1.githubusercontent.com/u/2289?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zeke Sikelianos</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=zeke" title="Documentation">📖</a> <a href="#ideas-zeke" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/Goobles"><img src="https://avatars3.githubusercontent.com/u/8776771?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gobius Dolhain</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=Goobles" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/jamesnetherton"><img src="https://avatars2.githubusercontent.com/u/4721408?v=4?s=100" width="100px;" alt=""/><br /><sub><b>James Netherton</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=jamesnetherton" title="Code">💻</a></td>
-    <td align="center"><a href="https://christophshyper.github.io/"><img src="https://avatars3.githubusercontent.com/u/45788587?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Krzysztof Szyper</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=ChristophShyper" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/michalkoza"><img src="https://avatars1.githubusercontent.com/u/2995498?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michał Koza</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=michalkoza" title="Code">💻</a></td>
-    <td align="center"><a href="https://ca.linkedin.com/in/jacktonye"><img src="https://avatars2.githubusercontent.com/u/17484350?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tonye Jack</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=jackton1" title="Documentation">📖</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://jamesmgreene.github.io/"><img src="https://avatars2.githubusercontent.com/u/417751?v=4?s=100" width="100px;" alt=""/><br /><sub><b>James M. Greene</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=JamesMGreene" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/simon300000"><img src="https://avatars1.githubusercontent.com/u/12656264?v=4?s=100" width="100px;" alt=""/><br /><sub><b>simon3000</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3Asimon300000" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=simon300000" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/PabloBarrenechea-Reflektion"><img src="https://avatars3.githubusercontent.com/u/62668221?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pablo Barrenechea</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3APabloBarrenechea-Reflektion" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=PabloBarrenechea-Reflektion" title="Code">💻</a></td>
-    <td align="center"><a href="https://openspur.org/~atsushi.w/"><img src="https://avatars3.githubusercontent.com/u/8390204?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Atsushi Watanabe</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3Aat-wat" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=at-wat" title="Code">💻</a></td>
-    <td align="center"><a href="http://twitter.com/christhekeele"><img src="https://avatars0.githubusercontent.com/u/1406220?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christopher Keele</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=christhekeele" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/rachmari"><img src="https://avatars.githubusercontent.com/u/9831992?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rachael Sewell</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=rachmari" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/TheKoenig"><img src="https://avatars.githubusercontent.com/u/74304748?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TheKoenig</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=TheKoenig" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://whe.me"><img src="https://avatars3.githubusercontent.com/u/5880908?v=4?s=100" width="100px;" alt="Wei He"/><br /><sub><b>Wei He</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=wei" title="Code">💻</a> <a href="https://github.com/repo-sync/pull-request/commits?author=wei" title="Documentation">📖</a> <a href="#design-wei" title="Design">🎨</a> <a href="#ideas-wei" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center"><a href="http://zeke.sikelianos.com"><img src="https://avatars1.githubusercontent.com/u/2289?v=4?s=100" width="100px;" alt="Zeke Sikelianos"/><br /><sub><b>Zeke Sikelianos</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=zeke" title="Documentation">📖</a> <a href="#ideas-zeke" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center"><a href="https://github.com/Goobles"><img src="https://avatars3.githubusercontent.com/u/8776771?v=4?s=100" width="100px;" alt="Gobius Dolhain"/><br /><sub><b>Gobius Dolhain</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=Goobles" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/jamesnetherton"><img src="https://avatars2.githubusercontent.com/u/4721408?v=4?s=100" width="100px;" alt="James Netherton"/><br /><sub><b>James Netherton</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=jamesnetherton" title="Code">💻</a></td>
+      <td align="center"><a href="https://christophshyper.github.io/"><img src="https://avatars3.githubusercontent.com/u/45788587?v=4?s=100" width="100px;" alt="Krzysztof Szyper"/><br /><sub><b>Krzysztof Szyper</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=ChristophShyper" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/michalkoza"><img src="https://avatars1.githubusercontent.com/u/2995498?v=4?s=100" width="100px;" alt="Michał Koza"/><br /><sub><b>Michał Koza</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=michalkoza" title="Code">💻</a></td>
+      <td align="center"><a href="https://ca.linkedin.com/in/jacktonye"><img src="https://avatars2.githubusercontent.com/u/17484350?v=4?s=100" width="100px;" alt="Tonye Jack"/><br /><sub><b>Tonye Jack</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=jackton1" title="Documentation">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://jamesmgreene.github.io/"><img src="https://avatars2.githubusercontent.com/u/417751?v=4?s=100" width="100px;" alt="James M. Greene"/><br /><sub><b>James M. Greene</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=JamesMGreene" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/simon300000"><img src="https://avatars1.githubusercontent.com/u/12656264?v=4?s=100" width="100px;" alt="simon3000"/><br /><sub><b>simon3000</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3Asimon300000" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=simon300000" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/PabloBarrenechea-Reflektion"><img src="https://avatars3.githubusercontent.com/u/62668221?v=4?s=100" width="100px;" alt="Pablo Barrenechea"/><br /><sub><b>Pablo Barrenechea</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3APabloBarrenechea-Reflektion" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=PabloBarrenechea-Reflektion" title="Code">💻</a></td>
+      <td align="center"><a href="https://openspur.org/~atsushi.w/"><img src="https://avatars3.githubusercontent.com/u/8390204?v=4?s=100" width="100px;" alt="Atsushi Watanabe"/><br /><sub><b>Atsushi Watanabe</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/issues?q=author%3Aat-wat" title="Bug reports">🐛</a> <a href="https://github.com/repo-sync/pull-request/commits?author=at-wat" title="Code">💻</a></td>
+      <td align="center"><a href="http://twitter.com/christhekeele"><img src="https://avatars0.githubusercontent.com/u/1406220?v=4?s=100" width="100px;" alt="Christopher Keele"/><br /><sub><b>Christopher Keele</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=christhekeele" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/rachmari"><img src="https://avatars.githubusercontent.com/u/9831992?v=4?s=100" width="100px;" alt="Rachael Sewell"/><br /><sub><b>Rachael Sewell</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=rachmari" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/TheKoenig"><img src="https://avatars.githubusercontent.com/u/74304748?v=4?s=100" width="100px;" alt="TheKoenig"/><br /><sub><b>TheKoenig</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=TheKoenig" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/jw-maynard"><img src="https://avatars.githubusercontent.com/u/23322066?v=4?s=100" width="100px;" alt="jw-maynard"/><br /><sub><b>jw-maynard</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=jw-maynard" title="Code">💻</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->
