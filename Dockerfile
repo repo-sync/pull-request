@@ -6,7 +6,7 @@ LABEL \
   "repository"="https://github.com/repo-sync/pull-request" \
   "maintainer"="Wei He <github@weispot.com>"
 
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
   apk add --no-cache git hub bash
 
 ADD *.sh /
