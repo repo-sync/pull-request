@@ -1,7 +1,7 @@
 # GitHub Pull Request
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A GitHub Action for creating pull requests.
@@ -128,6 +128,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center"><a href="https://github.com/hrtshu"><img src="https://avatars.githubusercontent.com/u/6995290?v=4?s=100" width="100px;" alt="Shuhei"/><br /><sub><b>Shuhei</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=hrtshu" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/jw-maynard"><img src="https://avatars.githubusercontent.com/u/23322066?v=4?s=100" width="100px;" alt="jw-maynard"/><br /><sub><b>jw-maynard</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=jw-maynard" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
