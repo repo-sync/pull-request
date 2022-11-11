@@ -83,7 +83,7 @@ if [[ "$INPUT_PR_DRAFT" ==  "true" ]]; then
   PR_ARG="$PR_ARG -d"
 fi
 
-COMMAND="hub pull-request \
+COMMAND="GITHUB_TOKEN=\"$GITHUB_TOKEN\" hub pull-request \
   -b $DESTINATION_BRANCH \
   -h $SOURCE_BRANCH \
   --no-edit \

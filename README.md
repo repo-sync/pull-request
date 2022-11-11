@@ -34,7 +34,6 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         destination_branch: "main"
-        github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 This will automatically create a pull request from `feature-1` to `main`.
@@ -100,6 +99,28 @@ jobs:
     - name: output-has-changed-files
       run: echo ${{steps.open-pr.outputs.has_changed_files}}
 
+```
+
+## Docker Container Image Usage
+
+Sometimes you might want to use a pre-built container image directly. This could result in faster runs and prevent needlessly rebuilding container images over-and-over on self-hosted runners.
+
+```yml
+on:
+  push:
+    branches:
+    - feature-1
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: pull-request
+      uses: docker://ghcr.io/repo-sync/pull-request:v2
+      with:
+        destination_branch: "main"
+        github_token: ${{ secrets.GITHUB_TOKEN }}         # Required to use container image
 ```
 
 ## Contributors ✨
