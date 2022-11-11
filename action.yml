@@ -42,6 +42,7 @@ inputs:
   github_token:
     description: GitHub token secret
     required: true
+    default: ${{ github.token }}
 outputs:
   pr_url:
     description: 'Pull request URL'

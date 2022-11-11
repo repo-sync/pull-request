@@ -66,7 +66,7 @@ jobs:
         pr_milestone: "Milestone 1"                       # Milestone name
         pr_draft: true                                    # Creates pull request as draft
         pr_allow_empty: true                              # Creates pull request even if there are no changes
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.CUSTOM_GH_TOKEN }}      # If blank, default: secrets.GITHUB_TOKEN
 ```
 
 ### Outputs
