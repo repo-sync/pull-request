@@ -53,12 +53,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: pull-request
-      uses: repo-sync/pull-request@v2
+      uses: repo-sync/pull-request@v2                     # Alternatively: docker://ghcr.io/repo-sync/pull-request:v2
       with:
         source_branch: ""                                 # If blank, default: triggered branch
         destination_branch: "master"                      # If blank, default: master
         pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
-        pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
+        pr_body: |                                        # Full markdown support, requires pr_title to be set
+          :crown: *An automated PR*
+
+          _Created by [repo-sync/pull-request](https://github.com/repo-sync/pull-request)_
         pr_template: ".github/PULL_REQUEST_TEMPLATE.md"   # Path to pull request template, requires pr_title to be set, excludes pr_body
         pr_reviewer: "wei,worker"                         # Comma-separated list (no spaces)
         pr_assignee: "wei,worker"                         # Comma-separated list (no spaces)

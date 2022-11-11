@@ -52,6 +52,4 @@ outputs:
     description: 'Boolean string indicating whether any file has been changed'
 runs:
   using: 'docker'
-  image: docker://ghcr.io/repo-sync/pull-request:v2.8
-  env:
-    GITHUB_TOKEN: ${{ inputs.github_token }}
+  image: Dockerfile

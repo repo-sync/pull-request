@@ -4,8 +4,12 @@ set -e
 set -o pipefail
 
 if [[ -z "$GITHUB_TOKEN" ]]; then
-  echo "Set the GITHUB_TOKEN environment variable."
-  exit 1
+  if [[ ! -z "$INPUT_GITHUB_TOKEN" ]]; then
+    GITHUB_TOKEN="$INPUT_GITHUB_TOKEN"
+  else
+    echo "Set the GITHUB_TOKEN environment variable."
+    exit 1
+  fi
 fi
 
 if [[ ! -z "$INPUT_SOURCE_BRANCH" ]]; then
