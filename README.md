@@ -29,7 +29,7 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
@@ -50,9 +50,9 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: pull-request
-      uses: repo-sync/pull-request@v2                     # Alternatively: docker://ghcr.io/repo-sync/pull-request:v2
+      uses: repo-sync/pull-request@v2
       with:
         source_branch: ""                                 # If blank, default: triggered branch
         destination_branch: "master"                      # If blank, default: master
@@ -85,7 +85,7 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: pull-request
       id: open-pr
       uses: repo-sync/pull-request@v2
