@@ -84,8 +84,8 @@ if [[ "$INPUT_PR_DRAFT" ==  "true" ]]; then
 fi
 
 COMMAND="GITHUB_TOKEN=\"$GITHUB_TOKEN\" hub pull-request \
-  -b $DESTINATION_BRANCH \
   -h $SOURCE_BRANCH \
+  -b $DESTINATION_BRANCH \
   --no-edit \
   $PR_ARG \
   || true"
@@ -93,7 +93,24 @@ COMMAND="GITHUB_TOKEN=\"$GITHUB_TOKEN\" hub pull-request \
 echo "$COMMAND"
 
 PR_URL=$(sh -c "$COMMAND")
-if [[ "$?" != "0" ]]; then
+
+
+if [[ -z "$PR_URL" ]]; then
+  # in case PR already exists, get its url
+  COMMAND="GITHUB_TOKEN=\"$GITHUB_TOKEN\" hub pr list \
+    -h $SOURCE_BRANCH \
+    -b $DESTINATION_BRANCH \
+    -f \"%U\" \
+    | head -n 1 \
+    || true"
+  
+  echo "$COMMAND"
+  
+  PR_URL=$(sh -c "$COMMAND")
+fi
+
+if [[ -z "$PR_URL" ]]; then
+  echo "Failed to create or retrieve existing pull request."
   exit 1
 fi
 

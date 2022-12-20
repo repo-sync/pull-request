@@ -11,7 +11,7 @@ A GitHub Action for creating pull requests.
  * Create pull requests
  * Add reviewers, assignees, labels, or milestones
  * Customize pull request title and body
- * Fail silently when a pull request already exists
+ * Retrieve the existing pull request URL in case pull request already exists
 
 
 ## Usage
