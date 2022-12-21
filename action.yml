@@ -3,7 +3,7 @@ author: Wei He <github@weispot.com>
 description: ⤵️ Create pull request
 branding:
   icon: 'git-pull-request'
-  color: 'black'
+  color: 'gray-dark'
 inputs:
   destination_repository:
     description: Repository (user/repo) to create the pull request in, falls back to checkout repository or triggered repository
@@ -45,6 +45,7 @@ inputs:
   github_token:
     description: GitHub token secret
     required: true
+    default: ${{ github.token }}
 outputs:
   pr_url:
     description: 'Pull request URL'
@@ -54,6 +55,6 @@ outputs:
     description: 'Boolean string indicating whether any file has been changed'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: Dockerfile
   env:
     GITHUB_TOKEN: ${{ inputs.github_token }}

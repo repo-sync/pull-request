@@ -4,8 +4,12 @@ set -e
 set -o pipefail
 
 if [[ -z "$GITHUB_TOKEN" ]]; then
-  echo "Set the GITHUB_TOKEN environment variable."
-  exit 1
+  if [[ ! -z "$INPUT_GITHUB_TOKEN" ]]; then
+    GITHUB_TOKEN="$INPUT_GITHUB_TOKEN"
+  else
+    echo "Set the GITHUB_TOKEN environment variable."
+    exit 1
+  fi
 fi
 
 if [[ ! -z "$INPUT_SOURCE_BRANCH" ]]; then
@@ -41,8 +45,11 @@ fi
 # Fallback to GITHUB_REPOSITORY if both INPUT_DESTINATION_REPOSITORY and CHECKOUT_REPOSITORY are unavailable
 DESTINATION_REPOSITORY="${INPUT_DESTINATION_REPOSITORY:-${CHECKOUT_REPOSITORY:-${GITHUB_REPOSITORY}}}"
 
+# Fix for the unsafe repo error: https://github.com/repo-sync/pull-request/issues/84
+git config --global --add safe.directory /github/workspace
+
 # Github actions no longer auto set the username and GITHUB_TOKEN
-git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@${GITHUB_SERVER_URL#https://}/$DESTINATION_REPOSITORY"
+git remote set-url origin "https://x-access-token:$GITHUB_TOKEN@${GITHUB_SERVER_URL#https://}/$DESTINATION_REPOSITORY"
 
 # Pull all branches references down locally so subsequent commands can see them
 git fetch origin '+refs/heads/*:refs/heads/*' --update-head-ok
@@ -98,7 +105,7 @@ if [[ "$INPUT_PR_DRAFT" ==  "true" ]]; then
   PR_ARG="$PR_ARG -d"
 fi
 
-COMMAND="hub pull-request \
+COMMAND="GITHUB_TOKEN=\"$GITHUB_TOKEN\" hub pull-request \
   -b $DESTINATION_BRANCH \
   -h $SOURCE_BRANCH \
   --no-edit \
@@ -113,10 +120,10 @@ if [[ "$?" != "0" ]]; then
 fi
 
 echo ${PR_URL}
-echo "::set-output name=pr_url::${PR_URL}"
-echo "::set-output name=pr_number::${PR_URL##*/}"
+echo "pr_url=${PR_URL}" >> $GITHUB_OUTPUT
+echo "pr_number=${PR_URL##*/}" >> $GITHUB_OUTPUT
 if [[ "$LINES_CHANGED" = "0" ]]; then
-  echo "::set-output name=has_changed_files::false"
+  echo "has_changed_files=false" >> $GITHUB_OUTPUT
 else
-  echo "::set-output name=has_changed_files::true"
+  echo "has_changed_files=true" >> $GITHUB_OUTPUT
 fi
