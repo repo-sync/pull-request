@@ -137,6 +137,33 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "hrtshu",
+      "name": "Shuhei",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6995290?v=4",
+      "profile": "https://github.com/hrtshu",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "jw-maynard",
+      "name": "jw-maynard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23322066?v=4",
+      "profile": "https://github.com/jw-maynard",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "privatenumber",
+      "name": "hiroki osame",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1075694?v=4",
+      "profile": "https://hirok.io",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -144,5 +171,6 @@
   "projectOwner": "repo-sync",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
