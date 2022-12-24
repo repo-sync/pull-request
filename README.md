@@ -1,7 +1,7 @@
 # GitHub Pull Request
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A GitHub Action for creating pull requests.
@@ -182,6 +182,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/hrtshu"><img src="https://avatars.githubusercontent.com/u/6995290?v=4?s=100" width="100px;" alt="Shuhei"/><br /><sub><b>Shuhei</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=hrtshu" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/jw-maynard"><img src="https://avatars.githubusercontent.com/u/23322066?v=4?s=100" width="100px;" alt="jw-maynard"/><br /><sub><b>jw-maynard</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=jw-maynard" title="Code">💻</a></td>
       <td align="center"><a href="https://hirok.io"><img src="https://avatars.githubusercontent.com/u/1075694?v=4?s=100" width="100px;" alt="hiroki osame"/><br /><sub><b>hiroki osame</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=privatenumber" title="Code">💻</a></td>
+      <td align="center"><a href="https://variatix.net"><img src="https://avatars.githubusercontent.com/u/6711514?v=4?s=100" width="100px;" alt="Mahesh Bandara Wijerathna"/><br /><sub><b>Mahesh Bandara Wijerathna</b></sub></a><br /><a href="https://github.com/repo-sync/pull-request/commits?author=m4heshd" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
