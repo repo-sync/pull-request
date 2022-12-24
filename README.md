@@ -54,6 +54,7 @@ jobs:
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
+        destination_repository: "owner/repository"        # If blank, default: checked out repository or triggered repository
         source_branch: ""                                 # If blank, default: triggered branch
         destination_branch: "master"                      # If blank, default: master
         pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
@@ -70,6 +71,33 @@ jobs:
         pr_allow_empty: true                              # Creates pull request even if there are no changes
         github_token: ${{ secrets.CUSTOM_GH_TOKEN }}      # If blank, default: secrets.GITHUB_TOKEN
 ```
+
+### Third-party repositories
+
+Since it's possible to `checkout` third-party repositories, you can either define `destination_repository` manually or let
+this action automatically pick up the checked out repository.
+
+```yaml
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: "octocat/hello-world"
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        destination_branch: "main"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+      # destination_repository: "octocat/hello-world" <- You can also do this but not necessary
+```
+
+**Priority will be set as follows:**
+
+1. `destination_repository` (Manually set)
+2. Checked out repository
+3. Repository that triggered the action (`GITHUB_REPOSITORY`)
 
 ### Outputs
 

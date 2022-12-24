@@ -23,11 +23,33 @@ fi
 
 DESTINATION_BRANCH="${INPUT_DESTINATION_BRANCH:-"master"}"
 
+# Determine repository url
+if [[ -z "$INPUT_DESTINATION_REPOSITORY" ]]; then
+  # Try to query local repository's remote url if INPUT_DESTINATION_REPOSITORY is null
+  local_origin=$(git config --get remote.origin.url)
+
+  if [[ "$local_origin" == *.git ]]; then
+    origin_no_suffix="${local_origin%.*}"
+  else
+    origin_no_suffix="$local_origin"
+  fi
+
+  repo="$(basename "${origin_no_suffix}")"
+  owner="$(basename "${origin_no_suffix%/${repo}}")"
+
+  if [[ ! -z "$repo" ]]; then
+    CHECKOUT_REPOSITORY="$owner/$repo"
+  fi
+fi
+
+# Fallback to GITHUB_REPOSITORY if both INPUT_DESTINATION_REPOSITORY and CHECKOUT_REPOSITORY are unavailable
+DESTINATION_REPOSITORY="${INPUT_DESTINATION_REPOSITORY:-${CHECKOUT_REPOSITORY:-${GITHUB_REPOSITORY}}}"
+
 # Fix for the unsafe repo error: https://github.com/repo-sync/pull-request/issues/84
 git config --global --add safe.directory /github/workspace
 
 # Github actions no longer auto set the username and GITHUB_TOKEN
-git remote set-url origin "https://x-access-token:$GITHUB_TOKEN@${GITHUB_SERVER_URL#https://}/$GITHUB_REPOSITORY"
+git remote set-url origin "https://x-access-token:$GITHUB_TOKEN@${GITHUB_SERVER_URL#https://}/$DESTINATION_REPOSITORY"
 
 # Pull all branches references down locally so subsequent commands can see them
 git fetch origin '+refs/heads/*:refs/heads/*' --update-head-ok
