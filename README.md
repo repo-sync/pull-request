@@ -9,9 +9,10 @@ A GitHub Action for creating pull requests.
 
 ## Features
  * Create pull requests
+ * Create pull requests on other repos
  * Add reviewers, assignees, labels, or milestones
  * Customize pull request title and body
- * Fail silently when a pull request already exists
+ * Retrieve the existing pull request url if a pull request already exists
 
 
 ## Usage
@@ -54,7 +55,6 @@ jobs:
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
-        destination_repository: "owner/repository"        # If blank, default: checked out repository or triggered repository
         source_branch: ""                                 # If blank, default: triggered branch
         destination_branch: "master"                      # If blank, default: master
         pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
@@ -101,7 +101,7 @@ jobs:
 
 ### Outputs
 
-The following outputs are available: `pr_url`, `pr_number`, `has_changed_files ("true"|"false")`.
+The following outputs are available: `pr_url`, `pr_number`, `pr_created ("true"|"false")`, `has_changed_files ("true"|"false")`.
 
 ```yaml
 on:
@@ -124,6 +124,8 @@ jobs:
       run: echo ${{steps.open-pr.outputs.pr_url}}
     - name: output-number
       run: echo ${{steps.open-pr.outputs.pr_number}}
+    - name: output-created
+      run: echo ${{steps.open-pr.outputs.pr_created}}
     - name: output-has-changed-files
       run: echo ${{steps.open-pr.outputs.has_changed_files}}
 
