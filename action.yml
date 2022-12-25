@@ -46,6 +46,9 @@ inputs:
     description: GitHub token secret
     required: true
     default: ${{ github.token }}
+  debug:
+    description: Bash set -x debugging mode
+    required: false
 outputs:
   pr_url:
     description: 'Pull request URL'
