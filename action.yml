@@ -46,11 +46,16 @@ inputs:
     description: GitHub token secret
     required: true
     default: ${{ github.token }}
+  debug:
+    description: Bash set -x debugging mode
+    required: false
 outputs:
   pr_url:
     description: 'Pull request URL'
   pr_number:
     description: 'Pull request number'
+  pr_created:
+    description: 'Boolean string indicating if a pull request was created from the action run'
   has_changed_files:
     description: 'Boolean string indicating whether any file has been changed'
 runs:
