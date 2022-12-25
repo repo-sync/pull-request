@@ -205,9 +205,11 @@ echo "::endgroup::"
 ################################################
 echo "::group::Retrieving pull request details"
 
+PR_CREATED="true"
 # determine success / failure
 # since various things can go wrong such as bad user input or non-existant branches, there is a need to handle outputs to determine if the pr was successfully created or not.
 if [[ -z "$PR_URL" ]]; then
+  PR_CREATED="false"
   if echo "$STD_ERROR" | grep -q "already exists"; then
     echo_yellow "Pull request already exists. This is the stderr output:"
     echo_yellow "$STD_ERROR"
@@ -245,6 +247,7 @@ echo "::group::Set outputs"
 
 echo "pr_url=${PR_URL}" >> $GITHUB_OUTPUT
 echo "pr_number=${PR_URL##*/}" >> $GITHUB_OUTPUT
+echo "pr_created=${PR_CREATED}" >> $GITHUB_OUTPUT
 
 if [[ "$LINES_CHANGED" = "0" ]]; then
   echo "has_changed_files=false" >> $GITHUB_OUTPUT
