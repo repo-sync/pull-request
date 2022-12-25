@@ -34,6 +34,8 @@ function disable_debug {
   fi
 }
 
+# Fix for the unsafe repo error: https://github.com/repo-sync/pull-request/issues/84
+git config --global --add safe.directory $(pwd)
 
 ##############################
 echo "::group::Gather Inputs"
@@ -96,9 +98,6 @@ echo "::endgroup::"
 
 ##############################
 echo "::group::Configure git"
-
-# Fix for the unsafe repo error: https://github.com/repo-sync/pull-request/issues/84
-git config --global --add safe.directory /github/workspace
 
 # Github actions no longer auto set the username and GITHUB_TOKEN
 git remote set-url origin "https://x-access-token:$GITHUB_TOKEN@${GITHUB_SERVER_URL#https://}/$DESTINATION_REPOSITORY"
