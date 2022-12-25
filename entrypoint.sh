@@ -11,17 +11,39 @@ color_green="\\e[32m"
 color_yellow="\\e[33m"
 color_blue="\\e[36m"
 color_gray="\\e[37m"
-function echo_blue { echo -e "${color_blue}$*${reset_color}"; }
-function echo_green { echo -e "${color_green}$*${reset_color}"; }
-function echo_red { echo -e "${color_red}$*${reset_color}"; }
-function echo_yellow { echo -e "${color_yellow}$*${reset_color}"; }
-function echo_gray { echo -e "${color_gray}$*${reset_color}"; }
-function echo_grey { echo -e "${color_gray}$*${reset_color}"; }
-function echo_info { echo -e "${color_blue}ℹ $*${reset_color}"; }
-function echo_error { echo -e "${color_red}✖ $*${reset_color}"; }
-function echo_warning { echo -e "${color_yellow}✔ $*${reset_color}"; }
-function echo_success { echo -e "${color_green}✔ $*${reset_color}"; }
-function echo_fail { echo -e "${color_red}✖ $*${reset_color}"; }
+function echo_blue {
+  printf "%b\n" "${color_blue}$(printf "%s\n" "$*")${reset_color}"
+}
+function echo_green {
+  printf "%b\n" "${color_green}$(printf "%s\n" "$*")${reset_color}"
+}
+function echo_red {
+  printf "%b\n" "${color_red}$(printf "%s\n" "$*")${reset_color}"
+}
+function echo_yellow {
+  printf "%b\n" "${color_yellow}$(printf "%s\n" "$*")${reset_color}"
+}
+function echo_gray {
+  printf "%b\n" "${color_gray}$(printf "%s\n" "$*")${reset_color}"
+}
+function echo_grey {
+  printf "%b\n" "${color_gray}$(printf "%s\n" "$*")${reset_color}"
+}
+function echo_info {
+  printf "%b\n" "${color_blue}ℹ $(printf "%s\n" "$*")${reset_color}"
+}
+function echo_error {
+  printf "%b\n" "${color_red}✖ $(printf "%s\n" "$*")${reset_color}"
+}
+function echo_warning {
+  printf "%b\n" "${color_yellow}✔ $(printf "%s\n" "$*")${reset_color}"
+}
+function echo_success {
+  printf "%b\n" "${color_green}✔ $(printf "%s\n" "$*")${reset_color}"
+}
+function echo_fail {
+  printf "%b\n" "${color_red}✖ $(printf "%s\n" "$*")${reset_color}"
+}
 function enable_debug {
   if [[ "${INPUT_DEBUG}" == "true" ]]; then
     echo_info "Enabling debug mode."
@@ -92,7 +114,7 @@ DESTINATION_REPOSITORY="${INPUT_DESTINATION_REPOSITORY:-${CHECKOUT_REPOSITORY:-$
 echo_gray "INPUT_DESTINATION_REPOSITORY=$INPUT_DESTINATION_REPOSITORY"
 echo_gray "CHECKOUT_REPOSITORY=$CHECKOUT_REPOSITORY"
 echo_gray "GITHUB_REPOSITORY=$GITHUB_REPOSITORY"
-echo_blue "DESTINATION_REPOSITORY=$DESTINATION_REPOSITORY"
+echo_info "DESTINATION_REPOSITORY=$DESTINATION_REPOSITORY"
 
 echo "::endgroup::"
 
@@ -164,14 +186,14 @@ if [[ "$INPUT_PR_DRAFT" ==  "true" ]]; then
   PR_ARG+=(-d)
 fi
 
-echo_blue "${PR_ARG[@]}"
+echo_info "${PR_ARG[@]}"
 echo "::endgroup::"
 
 ##########################################################################
 echo "::group::Create pull request $SOURCE_BRANCH -> $DESTINATION_BRANCH"
 
 COMMAND="hub pull-request "${PR_ARG[@]}" 2> /tmp/pull-request.stderr.log || true"
-echo_blue "$COMMAND"
+echo_info "$COMMAND"
 
 PR_URL=$(hub pull-request "${PR_ARG[@]}" 2> /tmp/pull-request.stderr.log || true)
 STD_ERROR="$(cat /tmp/pull-request.stderr.log || true)"
