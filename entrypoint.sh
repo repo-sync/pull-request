@@ -11,46 +11,24 @@ color_green="\\e[32m"
 color_yellow="\\e[33m"
 color_blue="\\e[36m"
 color_gray="\\e[37m"
-function echo_blue {
-  printf "%b\n" "${color_blue}$(printf "%s\n" "$*")${reset_color}"
-}
-function echo_green {
-  printf "%b\n" "${color_green}$(printf "%s\n" "$*")${reset_color}"
-}
-function echo_red {
-  printf "%b\n" "${color_red}$(printf "%s\n" "$*")${reset_color}"
-}
-function echo_yellow {
-  printf "%b\n" "${color_yellow}$(printf "%s\n" "$*")${reset_color}"
-}
-function echo_gray {
-  printf "%b\n" "${color_gray}$(printf "%s\n" "$*")${reset_color}"
-}
-function echo_grey {
-  printf "%b\n" "${color_gray}$(printf "%s\n" "$*")${reset_color}"
-}
-function echo_info {
-  printf "%b\n" "${color_blue}ℹ $(printf "%s\n" "$*")${reset_color}"
-}
-function echo_error {
-  printf "%b\n" "${color_red}✖ $(printf "%s\n" "$*")${reset_color}"
-}
-function echo_warning {
-  printf "%b\n" "${color_yellow}✔ $(printf "%s\n" "$*")${reset_color}"
-}
-function echo_success {
-  printf "%b\n" "${color_green}✔ $(printf "%s\n" "$*")${reset_color}"
-}
-function echo_fail {
-  printf "%b\n" "${color_red}✖ $(printf "%s\n" "$*")${reset_color}"
-}
-function enable_debug {
+echo_blue() { printf "%b\n" "${color_blue}$(printf "%s\n" "$*")${reset_color}"; }
+echo_green() { printf "%b\n" "${color_green}$(printf "%s\n" "$*")${reset_color}"; }
+echo_red() { printf "%b\n" "${color_red}$(printf "%s\n" "$*")${reset_color}"; }
+echo_yellow() { printf "%b\n" "${color_yellow}$(printf "%s\n" "$*")${reset_color}"; }
+echo_gray() { printf "%b\n" "${color_gray}$(printf "%s\n" "$*")${reset_color}"; }
+echo_grey() { printf "%b\n" "${color_gray}$(printf "%s\n" "$*")${reset_color}"; }
+echo_info() { printf "%b\n" "${color_blue}ℹ $(printf "%s\n" "$*")${reset_color}"; }
+echo_error() { printf "%b\n" "${color_red}✖ $(printf "%s\n" "$*")${reset_color}"; }
+echo_warning() { printf "%b\n" "${color_yellow}✔ $(printf "%s\n" "$*")${reset_color}"; }
+echo_success() { printf "%b\n" "${color_green}✔ $(printf "%s\n" "$*")${reset_color}"; }
+echo_fail() { printf "%b\n" "${color_red}✖ $(printf "%s\n" "$*")${reset_color}"; }
+enable_debug() {
   if [[ "${INPUT_DEBUG}" == "true" ]]; then
     echo_info "Enabling debug mode."
     set -x
   fi
 }
-function disable_debug {
+disable_debug() {
   if [[ "${INPUT_DEBUG}" == "true" ]]; then
     set +x
   fi
