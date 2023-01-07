@@ -70,19 +70,10 @@ echo_info "DESTINATION_BRANCH=$DESTINATION_BRANCH"
 # Determine repository url
 if [[ -z "$INPUT_DESTINATION_REPOSITORY" ]]; then
   # Try to query local repository's remote url if INPUT_DESTINATION_REPOSITORY is null
-  local_origin=$(git remote get-url origin | sed -E 's/:([^\/])/\/\1/g' | sed -e 's/ssh\/\/\///g' | sed -e 's/git@/https:\/\//g')
+  local_repo=$(git remote get-url origin | sed -r -e 's:https\://([^/]+)/([^/]+)/([^.]+)(.*):\2\/\3:g' -e 's:git@([^/]+)\:([^/]+)/([^.]+)(.*):\2\/\3:g')
 
-  if [[ "$local_origin" == *.git ]]; then
-    origin_no_suffix="${local_origin%.*}"
-  else
-    origin_no_suffix="$local_origin"
-  fi
-
-  repo="$(basename "${origin_no_suffix}")"
-  owner="$(basename "${origin_no_suffix%/${repo}}")"
-
-  if [[ ! -z "$repo" ]]; then
-    CHECKOUT_REPOSITORY="$owner/$repo"
+  if [[ ! -z "$local_repo" ]]; then
+    CHECKOUT_REPOSITORY="$local_repo"
   fi
 fi
 
