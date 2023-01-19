@@ -119,48 +119,48 @@ echo "::group::Assemble hub pr parameters"
 # Workaround for `hub` auth error https://github.com/github/hub/issues/2149#issuecomment-513214342
 export GITHUB_USER="$GITHUB_ACTOR"
 
-PR_ARG=(-b "$DESTINATION_BRANCH" -h "$SOURCE_BRANCH" --no-edit)
+PR_ARG="-b \"$DESTINATION_BRANCH\" -h \"$SOURCE_BRANCH\" --no-edit"
 
 if [[ ! -z "$INPUT_PR_TITLE" ]]; then
-  PR_ARG+=(-m "$INPUT_PR_TITLE")
+  PR_ARG="$PR_ARG -m \"$INPUT_PR_TITLE\""
   if [[ ! -z "$INPUT_PR_TEMPLATE" ]]; then
     sed -i 's/`/\\`/g; s/\$/\\\$/g' "$INPUT_PR_TEMPLATE"
-    PR_ARG+=(-m "$(echo -e "$(cat "$INPUT_PR_TEMPLATE")")")
+    PR_ARG="$PR_ARG -m \"$(echo -e "$(cat "$INPUT_PR_TEMPLATE")")\""
   elif [[ ! -z "$INPUT_PR_BODY" ]]; then
-    PR_ARG+=(-m "$INPUT_PR_BODY")
+    PR_ARG="$PR_ARG -m \"$INPUT_PR_BODY\""
   fi
 fi
 
 if [[ ! -z "$INPUT_PR_REVIEWER" ]]; then
-  PR_ARG+=(-r "$INPUT_PR_REVIEWER")
+  PR_ARG="$PR_ARG -r \"$INPUT_PR_REVIEWER\""
 fi
 
 if [[ ! -z "$INPUT_PR_ASSIGNEE" ]]; then
-  PR_ARG+=(-a "$INPUT_PR_ASSIGNEE")
+  PR_ARG="$PR_ARG -a \"$INPUT_PR_ASSIGNEE\""
 fi
 
 if [[ ! -z "$INPUT_PR_LABEL" ]]; then
-  PR_ARG+=(-l "$INPUT_PR_LABEL")
+  PR_ARG="$PR_ARG -l \"$INPUT_PR_LABEL\""
 fi
 
 if [[ ! -z "$INPUT_PR_MILESTONE" ]]; then
-  PR_ARG+=(-M "$INPUT_PR_MILESTONE")
+  PR_ARG="$PR_ARG -M \"$INPUT_PR_MILESTONE\""
 fi
 
 if [[ "$INPUT_PR_DRAFT" ==  "true" ]]; then
-  PR_ARG+=(-d)
+  PR_ARG="$PR_ARG -d"
 fi
 
-echo_info "${PR_ARG[@]}"
+echo_info "${PR_ARG}"
 echo "::endgroup::"
 
 ##########################################################################
 echo "::group::Create pull request $SOURCE_BRANCH -> $DESTINATION_BRANCH"
 
-COMMAND="hub pull-request "${PR_ARG[@]}" 2> /tmp/pull-request.stderr.log || true"
+COMMAND="hub pull-request $PR_ARG 2> /tmp/pull-request.stderr.log || true"
 echo_info "$COMMAND"
 
-PR_URL=$(hub pull-request "${PR_ARG[@]}" 2> /tmp/pull-request.stderr.log || true)
+PR_URL=$(sh -c "$COMMAND")
 STD_ERROR="$(cat /tmp/pull-request.stderr.log || true)"
 echo_error "STD_ERROR=$STD_ERROR"
 
