@@ -70,7 +70,7 @@ echo_info "DESTINATION_BRANCH=$DESTINATION_BRANCH"
 # Determine repository url
 if [[ -z "$INPUT_DESTINATION_REPOSITORY" ]]; then
   # Try to query local repository's remote url if INPUT_DESTINATION_REPOSITORY is null
-  CHECKOUT_REPOSITORY=$(git remote get-url origin | sed -r -e 's:https\://([^/]+)/([^/]+)/([^.]+)(.*):\2\/\3:g' -e 's:git@([^/]+)\:([^/]+)/([^.]+)(.*):\2\/\3:g')
+  CHECKOUT_REPOSITORY=$(git remote get-url origin | sed -r -e 's:(\.git$)::g' -e 's:https\://([^/]+)/([^/]+)/(.*):\2\/\3:g' -e 's:git@([^/]+)\:([^/]+)/(.*):\2\/\3:g')
 fi
 
 # Fallback to GITHUB_REPOSITORY if both INPUT_DESTINATION_REPOSITORY and CHECKOUT_REPOSITORY are unavailable
