@@ -59,7 +59,8 @@ outputs:
   has_changed_files:
     description: 'Boolean string indicating whether any file has been changed'
 runs:
-  using: 'docker'
-  image: Dockerfile
+  using : "composite"
   env:
     GITHUB_TOKEN: ${{ inputs.github_token }}
+  steps:
+    - run: ./entrypoint.sh
