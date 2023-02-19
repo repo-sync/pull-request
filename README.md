@@ -153,6 +153,21 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}         # Required to use container image
 ```
 
+## Regarding update of GITHUB ACTIONS
+As a result of https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/, you will need both permissions and to check the box in the your repo settings check [here](https://stackoverflow.com/questions/72376229/github-actions-is-not-permitted-to-create-or-approve-pull-requests-createpullre/73155199#73155199).
+
+For use of permission:
+```
+on:
+  push:
+
+permissions:
+  pull-requests: write
+```
+
+This is fix for problems like `Resource not accessible by integration` or `GitHub Actions is not permitted to create or approve pull requests.`
+
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
