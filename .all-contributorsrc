@@ -137,6 +137,51 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "hrtshu",
+      "name": "Shuhei",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6995290?v=4",
+      "profile": "https://github.com/hrtshu",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "jw-maynard",
+      "name": "jw-maynard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23322066?v=4",
+      "profile": "https://github.com/jw-maynard",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "privatenumber",
+      "name": "hiroki osame",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1075694?v=4",
+      "profile": "https://hirok.io",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "m4heshd",
+      "name": "Mahesh Bandara Wijerathna",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6711514?v=4",
+      "profile": "https://variatix.net",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "arizonaherbaltea",
+      "name": "Herbo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/41610038?v=4",
+      "profile": "https://github.com/arizonaherbaltea",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -144,5 +189,6 @@
   "projectOwner": "repo-sync",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
