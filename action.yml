@@ -42,6 +42,9 @@ inputs:
   pr_allow_empty:
     description: Create PR even if no changes
     required: false
+  working_directory:
+    description: Change working directory
+    required: false
   github_token:
     description: GitHub token secret
     required: true

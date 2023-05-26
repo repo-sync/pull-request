@@ -34,6 +34,12 @@ disable_debug() {
   fi
 }
 
+# work with repository in subdirectory
+if [[ -n "$INPUT_WORKING_DIRECTORY" ]]; then
+  echo "Changing working directory to $INPUT_WORKING_DIRECTORY"
+  cd "$INPUT_WORKING_DIRECTORY"
+fi
+
 # Fix for the unsafe repo error: https://github.com/repo-sync/pull-request/issues/84
 git config --global --add safe.directory $(pwd)
 
