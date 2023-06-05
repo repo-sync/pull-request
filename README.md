@@ -154,7 +154,7 @@ jobs:
 ```
 
 ## Regarding update of GITHUB ACTIONS
-As a result of https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/, you will need both permissions and to check the box in the your repo settings check [here](https://stackoverflow.com/questions/72376229/github-actions-is-not-permitted-to-create-or-approve-pull-requests-createpullre/73155199#73155199).
+As a result of "[GitHub Actions – Updating the default GITHUB_TOKEN permissions to read-only](https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/)", you will need both permissions and to check the box in the your repo settings check [here](https://stackoverflow.com/questions/72376229/github-actions-is-not-permitted-to-create-or-approve-pull-requests-createpullre/73155199#73155199).
 
 For use of permission:
 ```
